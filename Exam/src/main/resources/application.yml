@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ChallengeThree
+springdoc:
+  api-docs:
+    title: PRODUCTS
+    description: CRUD PRODUCTS
+    servers:
+      - url: http://localhost:8080    
+version: '3.1'
+
