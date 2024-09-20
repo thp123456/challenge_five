@@ -10,7 +10,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class SuccessRespo {
 	private String message;
-	private Object responseData;
+	private Map<String, Object> responseData;
 	private boolean success;
 	private int status;
 	private Object violations;
