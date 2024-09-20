@@ -6,5 +6,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthenticationResponse {
-    private String jwt;
+    private String token;
+    private String role;
+    private long expirationTime;
+
 }

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "user")
-public class User {
+public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(description = "ID của người dùng", example = "1")
@@ -24,6 +24,6 @@ public class User {
     private String password;
 
     @Column(name = "role", nullable = false)
-    @Schema(description = "Quyền truy cập tài khoản", example = "user_role")
+    @Schema(description = "Quyền truy cập tài khoản", example = "USER")
     private String role;
 }

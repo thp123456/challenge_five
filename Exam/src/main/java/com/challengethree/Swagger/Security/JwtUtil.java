@@ -37,12 +37,7 @@ public class JwtUtil {
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(subject)
-                .setIssuer(jwtIssuer)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
+        return Jwts.builder().claims(claims).subject(subject).issuer(jwtIssuer).issuedAt(new Date()).expiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
                 .signWith(getSecretKey())
                 .compact();
     }
@@ -59,13 +54,13 @@ public class JwtUtil {
         JwtParser parser = Jwts.parser()
                 .setSigningKey(getSecretKey())
                 .build();
-        return parser.parseClaimsJws(token).getBody().getSubject();
+        return parser.parseSignedClaims(token).getPayload().getSubject();
     }
 
-    private Date extractExpiration(String token) {
+    public Date extractExpiration(String token) {
         JwtParser parser = Jwts.parser()
                 .setSigningKey(getSecretKey())
                 .build();
-        return parser.parseClaimsJws(token).getBody().getExpiration();
+        return parser.parseSignedClaims(token).getPayload().getExpiration();
     }
 }

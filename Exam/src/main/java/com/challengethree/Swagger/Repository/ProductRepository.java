@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.challengethree.Swagger.Entity.Product;
 
+import java.util.UUID;
+
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends JpaRepository<Product, String> {
 	boolean existsByCode(String code);
 }
